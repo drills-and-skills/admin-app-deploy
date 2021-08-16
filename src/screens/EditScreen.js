@@ -280,6 +280,18 @@ function ModuleScreen() {
         };
 
         setVideoUploadInProgress(true);
+
+        var getKeys = await firebase.functions().httpsCallable('getSecretKeyAdminApp');
+        await getKeys().then((result) => {
+            if (result.data != null) {
+                // Read result of the Cloud Function.
+                s3 = new AWS.S3({
+                    accessKeyId: result.data.accessKeyId,
+                    secretAccessKey: result.data.secretAccessKey,
+                })
+            }
+        });
+        
         s3.upload(videoParams, function (err, info) {
             if (err) {
                 alert('Upload Unsuccessful');
