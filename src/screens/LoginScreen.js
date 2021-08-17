@@ -31,7 +31,7 @@ function LoginScreen() {
 
     return (
         <div className="Login">
-            <h1>Paul Easton 🏀 Admin</h1>
+            <h1>Paul Easton 🏀 Admin Website</h1>
             <h2>Sign In</h2>
             <div>
                 <Input
