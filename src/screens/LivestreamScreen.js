@@ -40,7 +40,7 @@ function LivestreamScreen() {
     }
     return (
         <div className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <h2>Create a New Livestream: </h2>
             <div></div>
             <div>

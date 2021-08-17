@@ -21,7 +21,7 @@ function LoginScreen() {
                 setUserInvalidMessage(true);
             } else {
                 let isLoggedIn = userIsSignedIn();
-                if (isLoggedIn && email == 'pauleastondevteam@gmail.com') {
+                if (isLoggedIn && email === 'pauleastondevteam@gmail.com') {
                     console.log('isLogged in is True');
                     history.push('/home');
                 }
@@ -31,7 +31,7 @@ function LoginScreen() {
 
     return (
         <div className="Login">
-            <h1>Paul Easton 🏀 Admin</h1>
+            <h1>Paul Easton Admin</h1>
             <h2>Sign In</h2>
             <div>
                 <Input

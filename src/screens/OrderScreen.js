@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import ModNameSelect from '../components/ModNameSelect';
+import React, {useState} from 'react';
 import Button from '../components/Button';
 import {firebase} from '../services/firebase';
 import {useHistory} from 'react-router-dom';
@@ -8,11 +7,9 @@ import Select from 'react-select';
 
 function OrderScreen() {
     let db = firebase.firestore();
-    const history = useHistory();
-    const queryPlayerModNameResult = queryPlayerModNames();
-    const queryCoachModNameResult = queryCoachModNames();
-    const [module, setModule] = useState('');
-    const [actionChosen, setActionChosen] = useState('');
+    useHistory();
+    queryPlayerModNames();
+    queryCoachModNames();
     const [modNamesIsLoading, setModNamesIsLoading] = useState(true);
     const [moduleFor, setModuleFor] = useState('');
     const [orderingPlayers, setOrderingPlayers] = useState(false);
@@ -20,6 +17,10 @@ function OrderScreen() {
     var counter = 1;
     let allPlayerModules = [];
     let allCoachModules = [];
+
+    console.log(modNamesIsLoading);
+    console.log(orderingPlayers);
+    console.log(orderingCoaches);
 
     function queryPlayerModNames() {
         db.collection('modules')
@@ -60,7 +61,7 @@ function OrderScreen() {
     }
 
     function choosePlayerModule() {
-        console.log(module);
+        // console.log(module);
         console.log(allPlayerModules);
     }
 

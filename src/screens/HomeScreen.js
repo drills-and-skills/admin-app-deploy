@@ -43,7 +43,7 @@ function HomeScreen() {
 
     return (
         <header className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <Button onClick={() => setNextPage('modules')}>Create Module</Button>
             <Button onClick={() => setNextPage('edit')}>Edit Module</Button>
             {/* <Button onClick={() => setNextPage('order')}>Edit Order that Modules are Displayed</Button> */}

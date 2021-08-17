@@ -16,7 +16,7 @@ async function signInUser(email, password) {
                 return error;
             }
         });
-    if (email != 'pauleastondevteam@gmail.com') {
+    if (email !== 'pauleastondevteam@gmail.com') {
         alert('You are not authorized');
         return;
     }

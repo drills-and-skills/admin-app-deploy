@@ -48,9 +48,9 @@ function ModuleScreen() {
     const [modNamesIsLoading, setModNamesIsLoading] = useState(true);
     const [modLevelsIsLoading, setModLevelsIsLoading] = useState(true);
     let [videos] = useState([]);
-    const queryTrainerResult = queryTrainers();
+    queryTrainers();
     //causes trainers query to run at beginning so it is there if user needs to edit it
-    const queryModNameResult = queryModNames();
+    queryModNames();
     //causes modNames (all mods in database) to run at beginning so it is there if user needs to edit it
     const [moduleLevel, setModuleLevel] = useState('');
     const [actionChosen, setActionChosen] = useState('');
@@ -68,6 +68,11 @@ function ModuleScreen() {
     let allModules = []; //array of all modNames in db
     let allLevels = [];
     // var levelAdded = {};
+
+    console.log(videos);
+    console.log(levelToAddTo);
+    console.log(setInputKey);
+    console.log(setLevelToAddTo);
 
     /**
      * Updates the modName for the module object chosen by user (module variable)
@@ -344,38 +349,38 @@ function ModuleScreen() {
      * iterates through all videos after the one that was inserted to update their keys by 1
      * updates the videos array in the database
      */
-    function handleVideoInsertion() {
-        //HANDLE GETTING RID OF KEY
-        var videoObject = {};
-        videoObject.drill = videoName;
-        videoObject.source = videoLink;
-        videoObject.level = parseInt(levelToAddTo); //this level is indicated by the user
-        let i;
-        //let savedIndex = 0;
-        for (i = 0; i < moduleVideos.length; i++) {
-            if (
-                moduleVideos[i].level > levelToAddTo ||
-                i === moduleVideos.length - 1
-            ) {
-                //videoObject.key = i;
-                moduleVideos.splice(i - 1, 0, videoObject);
-                //savedIndex = i;
-                break;
-            }
-        }
-        // let j;
-        // for (j = savedIndex; j < moduleVideos.length; j++) {
-        //     moduleVideos[j].key += 1;
-        // }
-        db.collection('modules')
-            .doc(module.value)
-            .update({
-                'module.videos': moduleVideos,
-            })
-            .then(() => console.log('Doc written successfully!'));
-        clearVideoInfo();
-        history.push('/success');
-    }
+    // function handleVideoInsertion() {
+    //     //HANDLE GETTING RID OF KEY
+    //     var videoObject = {};
+    //     videoObject.drill = videoName;
+    //     videoObject.source = videoLink;
+    //     videoObject.level = parseInt(levelToAddTo); //this level is indicated by the user
+    //     let i;
+    //     //let savedIndex = 0;
+    //     for (i = 0; i < moduleVideos.length; i++) {
+    //         if (
+    //             moduleVideos[i].level > levelToAddTo ||
+    //             i === moduleVideos.length - 1
+    //         ) {
+    //             //videoObject.key = i;
+    //             moduleVideos.splice(i - 1, 0, videoObject);
+    //             //savedIndex = i;
+    //             break;
+    //         }
+    //     }
+    //     // let j;
+    //     // for (j = savedIndex; j < moduleVideos.length; j++) {
+    //     //     moduleVideos[j].key += 1;
+    //     // }
+    //     db.collection('modules')
+    //         .doc(module.value)
+    //         .update({
+    //             'module.videos': moduleVideos,
+    //         })
+    //         .then(() => console.log('Doc written successfully!'));
+    //     clearVideoInfo();
+    //     history.push('/success');
+    // }
     /**
      * calls handleVideoInsertion
      */
@@ -430,7 +435,7 @@ function ModuleScreen() {
 
     return (
         <header className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <h2>Edit Existing Training Module:</h2>
             <div>
                 {!editModule ? (

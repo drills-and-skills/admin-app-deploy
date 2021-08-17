@@ -34,7 +34,6 @@ function ModuleScreen() {
     const [modNameIsSubmitted, setModNameIsSubmitted] = useState(false);
     const [videoNum, setVideoNum] = useState(1);
     const [videoName, setVideoName] = useState('');
-    const [duration, setDuration] = useState();
     const [inputKey, setInputKey] = useState();
     const [videoLink, setVideoLink] = useState('');
     const [levelTitle, setLevelTitle] = useState();
@@ -43,9 +42,11 @@ function ModuleScreen() {
     const [trainers, setTrainers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [videoUploadInProgress, setVideoUploadInProgress] = useState(false);
-    const queryResult = queryTrainers(); //causes function to run and get trainers in the background
+    queryTrainers(); //causes function to run and get trainers in the background
     let allTrainers = [];
     let [module] = useState({});
+
+    console.log(setInputKey);
 
     /**
      * Query all of the trainers in the 'trainers' collection
@@ -200,6 +201,7 @@ function ModuleScreen() {
         //         'Make sure you have uploaded your last video. If all the fields are blank and you are done with the current level, press OK. If you have not finished uploading the current video, press Cancel and then press Upload Video',
         //     )
         // )
+        // eslint-disable-next-line no-lone-blocks
         {
             e.preventDefault();
             module.videos.push({data: []});
@@ -241,7 +243,7 @@ function ModuleScreen() {
 
     return (
         <header className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <h2>Create New Training Module:</h2>
             {/* This input and dropdown render until they have been submitted */}
             {!modNameIsSubmitted ? (

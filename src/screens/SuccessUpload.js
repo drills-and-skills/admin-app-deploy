@@ -15,7 +15,7 @@ function SuccessfulUploadScreen() {
     });
     return (
         <header className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <p>Your change has been submitted successfully</p>
             <Button
                 onClick={() => {

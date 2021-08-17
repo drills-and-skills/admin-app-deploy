@@ -9,7 +9,7 @@ function JumpshotTutorScreen() {
     let db = firebase.firestore();
     let allTrainers = [];
     const [isLoading, setIsLoading] = useState(true);
-    const queryResult = queryTrainers(); //causes function to run and get trainers in the background
+    queryTrainers(); //causes function to run and get trainers in the background
     const history = useHistory();
 
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Button from '../components/Button';
 import DateTimePicker from 'react-datetime-picker';
 import {useHistory} from 'react-router-dom';
@@ -34,7 +34,7 @@ function ChallengeScreen() {
     }
     return (
         <div className="App-header">
-            <h1>Paul Easton 🏀 Admin Website</h1>
+            <h1>Paul Easton Admin Website</h1>
             <h2>Create a New Challenge: </h2>
             <div></div>
             <div>

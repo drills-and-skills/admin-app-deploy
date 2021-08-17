@@ -8,6 +8,7 @@ import Button from '../components/Button';
 function DisplayEntireModule(props) {
     const [propsVids, setPropsVids] = useState(props.module.module.videos);
     const history = useHistory();
+    console.log(setPropsVids);
 
     function handleSubmit(event) {
         let db = firebase.firestore();
